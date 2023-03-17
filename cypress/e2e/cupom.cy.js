@@ -6,7 +6,7 @@ import { shipping, product, total, cep, value, expired, invalid, coupons } from 
 describe('Coupon validation', () => {
 
     beforeEach(() => {
-        prod.go('[CATEGORIA] Produto com categoria - 1 Nível')
+        prod.go()
         prod.buy()
         cart.isCartPage()  
     })
