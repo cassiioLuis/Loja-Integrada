@@ -1,0 +1,11 @@
+{
+  "name": "LojaIntegrada",
+  "version": "1.0.0",
+  "description": "Desafio loja integrada",
+  "main": "index.js",
+  "author": "Cássio Luis",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "12.8.1"
+  }
+}
