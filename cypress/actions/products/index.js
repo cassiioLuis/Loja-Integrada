@@ -2,9 +2,9 @@
 
 class Product {
 
-    go(product = '/categoria-produto-com-categoria-1-nivel')
+    go()
     {
-        cy.visit(product)
+        cy.visit('/categoria-produto-com-categoria-1-nivel')
     }
 
     buy()
