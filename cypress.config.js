@@ -1,11 +1,22 @@
 const { defineConfig } = require("cypress")
+const { beforeRunHook, afterRunHook } = require('cypress-mochawesome-reporter/lib');
 
 module.exports = defineConfig({
 
   e2e: {
 
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      require('cypress-mochawesome-reporter/plugin')(on)
+
+      on('before:run', async (details) => {
+        console.log('override before:run');
+        await beforeRunHook(details);
+      });
+
+      on('after:run', async () => {
+        console.log('override after:run');
+        await afterRunHook();
+      });
     },
 
     baseUrl: 'https://qastoredesafio.lojaintegrada.com.br',
@@ -16,6 +27,25 @@ module.exports = defineConfig({
 
   env: {
     api: 'https://qastoredesafio.lojaintegrada.com.br'
-  }
+  },
+
+  reporter: 'cypress-multi-reporters',
+  reporterOptions: {
+    reporterEnabled: 'cypress-mochawesome-reporter, mocha-junit-reporter',
+    cypressMochawesomeReporterReporterOptions: {
+      reportDir: 'cypress/reports',
+      charts: true,
+      reportPageTitle: 'Testes Cypress',
+      embeddedScreenshots: true,
+      inlineAssets: true,
+    },
+    mochaJunitReporterReporterOptions: {
+      mochaFile: 'cypress/reports/junit/results-[hash].xml',
+    }
+  },
+
+  retries: {
+    runMode: 3
+  },
 
 })

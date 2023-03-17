@@ -15,6 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import 'cypress-mochawesome-reporter/register';
 
 const app = window.top
 if (!app.document.head.querySelector('[data-hide-command-log-request]')) {

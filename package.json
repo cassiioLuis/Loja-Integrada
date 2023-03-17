@@ -6,6 +6,8 @@
   "author": "Cássio Luis",
   "license": "MIT",
   "devDependencies": {
-    "cypress": "12.8.1"
+    "cypress": "12.8.1",
+    "cypress-mochawesome-reporter": "^3.3.0",
+    "cypress-multi-reporters": "^1.6.3"
   }
 }
