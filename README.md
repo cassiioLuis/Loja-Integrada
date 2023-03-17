@@ -5,4 +5,4 @@
 
 - Optado pelo gerenciador de pacotes YARN
 
-- Para rodar só dar um "yarn install"
+  - Para rodar só dar um "yarn install"
